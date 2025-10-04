@@ -7,13 +7,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ## 이미지
-첫화면
+<p>첫화면</p>
 <img width="717" height="611" alt="Image" src="https://github.com/user-attachments/assets/efd1cfa1-cbde-4d68-9c11-69865027ecae" />
 
-수정/삭제 화면
+<p>수정/삭제 화면</p>
 <img width="721" height="645" alt="Image" src="https://github.com/user-attachments/assets/1566cef1-b249-4442-900a-2d5f496407f4" />
 
-글등록 화면
+<p>글등록 화면</p>
 <img width="718" height="612" alt="Image" src="https://github.com/user-attachments/assets/40495eb8-71ae-4a93-a40e-14d84ad75f12" />
 
 ### `npm start`
