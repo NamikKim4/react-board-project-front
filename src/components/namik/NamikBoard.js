@@ -158,7 +158,7 @@ const NamikBoard = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:80/board/board/conceal/${writer}/${bno}`,
+        `http://localhost:80/board/conceal/${writer}/${bno}`,
       );
       console.log("response", response);
 
