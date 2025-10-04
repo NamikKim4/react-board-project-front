@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+
+.bg-body-tertiary {
+  background-color: #FFD966 !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+}
+
+
+/*남익 게시판 스타일*/
+
+/*게시판 제목 포지션*/
+.container {
+  display: flex;
+  justify-content: center;  /* 가로 가운데 */
+
+  height: 10vh;            /* 화면 전체 높이 */
+}
+
+h1 {
+  font-size: 1rem;
+  color: #ff69b4;           /* 귀여운 핑크 */
+  text-shadow: 2px 2px #ffe4e1;
+}
+
+/*글등록 버튼 포지션*/
+.center-container {
+  display: flex;
+  justify-content: center; /* 가로 가운데 */
+  align-items: center;     /* 세로 가운데 */
+  height: 20vh;           /* 화면 전체 높이 */
+}

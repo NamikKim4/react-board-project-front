@@ -4,6 +4,8 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+import '../../App.css';
+
 
 const NamikBoard = () => {
   const [boardData, setBoardData] = useState([]);
@@ -69,6 +71,7 @@ const NamikBoard = () => {
     setBno(params.data.bno);
     setWriter(params.data.writer);
     setShow(true);
+
   };
 
   const updateBoard = async () => {
@@ -94,13 +97,10 @@ const NamikBoard = () => {
 
     try {
       const response = await axios.put(
-        "http://localhost:80/board/board",
+        `http://localhost:80/board/update`,
         updatedData
       );
       console.log("response", response);
-
-      // 서버에서 반환한 데이터를 적절히 처리하거나 상태로 업데이트할 수 있습니다.
-      // 예: setBoardData(response.data.boardList);
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -171,7 +171,9 @@ const NamikBoard = () => {
 
   return (
     <>
+    <div className="container">
       <h1>남익의 게시판😺</h1>
+    </div>
 
       <div className="ag-theme-alpine" style={{ height: 400, width: "100%" }}>
         <AgGridReact
@@ -187,9 +189,12 @@ const NamikBoard = () => {
       </div>
 
       <>
-        <Button variant="warning" onClick={open}>
-          글등록✏️
-        </Button>
+          <div className="center-container">
+          <Button variant="warning" onClick={open}>
+           글등록✏️
+          </Button>
+          </div>
+
 
         <Modal show={show} onHide={handleClose} size="lg">
           <Modal.Header closeButton>
