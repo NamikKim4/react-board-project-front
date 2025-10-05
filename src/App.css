@@ -61,9 +61,74 @@ h1 {
 }
 
 /*글등록 버튼 포지션*/
-.center-container {
+.top-bar {
   display: flex;
-  justify-content: center; /* 가로 가운데 */
-  align-items: center;     /* 세로 가운데 */
-  height: 20vh;           /* 화면 전체 높이 */
+  align-items: center;
+  justify-content: center; /* 검색창 가운데 정렬 */
+  position: relative; /* 버튼의 절대 위치 기준 */
+  margin-top: 20px;
+  width: 100%;
 }
+
+/* 🔍 검색창 */
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 6px 12px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+.search-box input::placeholder {
+  color: #999;
+}
+
+/* ✏️ 글등록 버튼 */
+.top-bar button {
+  position: absolute;
+  right: 10%;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.top-bar button:hover {
+  background-color: #ffb300;
+  transform: scale(1.05);
+}
+
+
+
+/*글등록 버튼 디자인*/
+.green-btn {
+  background-color: #4CAF50 !important; /* ✅ !important로 Bootstrap 덮어쓰기 */
+  border: none !important;
+  color: white !important;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 6px 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.green-btn:hover {
+  background-color: #43a047 !important; /* hover 시 진한 초록 */
+  transform: scale(1.05);
+}
+
+
+
+

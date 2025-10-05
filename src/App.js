@@ -12,6 +12,7 @@ import Home from "./components/Home/Home";
 
 function App() {
   let navigate = useNavigate();
+
   return (
     <>
       <Navbar className="bg-body-tertiary">
@@ -26,7 +27,10 @@ function App() {
               navigate("/");
             }}
           >
-            Board Project
+            <img
+              width={100}
+              src="https://littledeep.com/wp-content/uploads/2019/04/littledeep_leaf_style2.png"
+            />
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Text
@@ -34,37 +38,39 @@ function App() {
               cursor: "pointer", // 커서 모양을 손가락으로 변경
               textDecoration: "none", // 클릭 시 텍스트 밑줄 제거
               color: "#333", // 클릭 시 텍스트 색상 변경
-              marginRight: "10px",
+              marginLeft: "15px",
             }}
             onClick={() => {
               navigate("/namik");
             }}
           >
-            Board☝️
+            Board
           </Navbar.Text>
           <Navbar.Text
             style={{
               cursor: "pointer", // 커서 모양을 손가락으로 변경
               textDecoration: "none", // 클릭 시 텍스트 밑줄 제거
               color: "#333", // 클릭 시 텍스트 색상 변경
+              marginLeft: "15px",
             }}
             onClick={() => {
               navigate("/youhan");
             }}
           >
-            Board✌️ 
+            Review
           </Navbar.Text>
           <Navbar.Text
             style={{
               cursor: "pointer", // 커서 모양을 손가락으로 변경
               textDecoration: "none", // 클릭 시 텍스트 밑줄 제거
               color: "#333", // 클릭 시 텍스트 색상 변경
+              marginLeft: "15px", // 간격지정
             }}
             onClick={() => {
               navigate("/sungchan");
             }}
           >
-            Board👌
+            shop
           </Navbar.Text>
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
@@ -77,8 +83,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/namik" element={<NamikBoard />} />
-        <Route path="/youhan" element={<YohanBoard/>} />
-        <Route path="/sungchan" element={<SungchanBoard/>} />
+        <Route path="/youhan" element={<YohanBoard />} />
+        <Route path="/sungchan" element={<SungchanBoard />} />
       </Routes>
     </>
   );

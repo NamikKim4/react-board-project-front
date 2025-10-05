@@ -4,8 +4,9 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import '../../App.css';
-
+import "../../App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const NamikBoard = () => {
   const [boardData, setBoardData] = useState([]);
@@ -22,11 +23,29 @@ const NamikBoard = () => {
   const [NewInsert, setNewInsert] = useState("");
   const [updateDate2, setUpdateDate2] = useState("");
   const [maxBno, setMaxBno] = useState("");
+  const [keyword, setKeyword] = useState("");
 
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
+  const onCheckEnter = async (e) => {
+  if (e.key === "Enter") {
+    try {
+      const res = await axios.put(`http://localhost:80/board/search/${keyword}`);
+      console.log("검색 결과:", res.data);
+      setBoardData(res.data.list); // 서버에서 리스트 받아서 state 갱신
+    } catch (err) {
+      console.error("검색 실패:", err);
+    }
+
+    console.log("Enter key pressed");
+    console.log("검색어:", keyword);
+    console.log("검색어:", e.target.value);
+  }
+};
+
 
   useEffect(() => {
     fetchData();
@@ -35,11 +54,11 @@ const NamikBoard = () => {
   const ColumnDefs = [
     { headerName: "No", field: "bno", width: 100 },
     { headerName: "Title", field: "title", width: 300 },
-    { headerName: "Writer", field: "writer" },
     { headerName: "Content", field: "content" },
     { headerName: "Write Date", field: "writeDate" },
-    { headerName: "Update Date", field: "updateDate" },
+    // { headerName: "Update Date", field: "updateDate" },
     { headerName: "Like", field: "boardLike" },
+    { headerName: "Writer", field: "writer" },
     { headerName: "Deleted Yn", field: "deletedYn", hide: true },
   ];
 
@@ -52,8 +71,7 @@ const NamikBoard = () => {
         return item.bno > max ? item.bno : max;
       }, 0);
       setMaxBno(maxBno);
-      console.log("maxBno",maxBno)
-
+      console.log("maxBno", maxBno);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -71,7 +89,6 @@ const NamikBoard = () => {
     setBno(params.data.bno);
     setWriter(params.data.writer);
     setShow(true);
-
   };
 
   const updateBoard = async () => {
@@ -107,8 +124,6 @@ const NamikBoard = () => {
     window.location.reload();
   };
 
-
-
   const open = () => {
     setNewInsert(true);
     handleShow();
@@ -116,10 +131,8 @@ const NamikBoard = () => {
     setContent("");
   };
 
-
-
   const InsertBoard = async () => {
-    console.log("maxBnomaxBnomaxBno",maxBno);
+    console.log("maxBnomaxBnomaxBno", maxBno);
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, "0");
@@ -134,7 +147,7 @@ const NamikBoard = () => {
       title: title2,
       updateDate: isoDate2,
       writeDate: isoDate,
-      writer: `writer${maxBno+1}`,
+      writer: `writer${maxBno + 1}`,
     };
 
     try {
@@ -150,30 +163,27 @@ const NamikBoard = () => {
     window.location.reload();
   };
 
-
   const deleteBoard = async () => {
     console.log("🤗🤗🤗");
-    console.log("writer/bno",writer,bno);
+    console.log("writer/bno", writer, bno);
     setShow(false);
 
     try {
       const response = await axios.put(
-        `http://localhost:80/board/conceal/${writer}/${bno}`,
+        `http://localhost:80/board/conceal/${writer}/${bno}`
       );
       console.log("response", response);
-
     } catch (error) {
       console.error("Error updating data:", error);
     }
     window.location.reload();
   };
 
-
   return (
     <>
-    <div className="container">
-      <h1>남익의 게시판😺</h1>
-    </div>
+      <div className="container">
+        <h1>QnA</h1>
+      </div>
 
       <div className="ag-theme-alpine" style={{ height: 400, width: "100%" }}>
         <AgGridReact
@@ -181,20 +191,30 @@ const NamikBoard = () => {
           rowData={boardData}
           defaultColDef={{
             resizable: true,
-            // editable: true
           }}
+          pagination={true} // ✅ 페이지네이션 활성화
+          paginationPageSize={10} // ✅ 한 페이지당 10개씩
           onGridReady={onGridReady}
           onCellClicked={onCellClicked}
         />
       </div>
 
       <>
-          <div className="center-container">
-          <Button variant="warning" onClick={open}>
-           글등록✏️
-          </Button>
+        <div className="top-bar">
+          <div className="search-box">
+            <FontAwesomeIcon icon={faSearch} />
+            <input 
+            type="text" 
+            placeholder="Search" 
+            onKeyPress={onCheckEnter} 
+            onChange={(e) => setKeyword(e.target.value)}
+            />
           </div>
 
+          <Button className="green-btn" onClick={open}>
+            글등록✏️
+          </Button>
+        </div>
 
         <Modal show={show} onHide={handleClose} size="lg">
           <Modal.Header closeButton>
@@ -241,13 +261,13 @@ const NamikBoard = () => {
               Close
             </Button>
             <Button
-              variant="warning"
+              className="green-btn"
               onClick={NewInsert ? InsertBoard : updateBoard}
             >
               {NewInsert ? "등록" : "수정"}
             </Button>
             <Button
-              variant="warning"
+              className="green-btn"
               onClick={deleteBoard}
               style={{ display: NewInsert ? "none" : "block" }}
             >
