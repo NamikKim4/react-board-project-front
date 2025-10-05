@@ -31,7 +31,18 @@ const NamikBoard = () => {
   const handleClose = () => setShow(false);
 
   const onCheckEnter = async (e) => {
+
   if (e.key === "Enter") {
+    //✅검색창에 아무것도 입력안하고 엔터누르면 모든게시물 보이게
+    if (!keyword.trim()) {
+      try {
+        fetchData();
+      } catch (err) {
+        console.error("전체 게시물 불러오기 실패:", err);
+      }
+      return; // 아래 코드 실행 안 하고 종료
+    }
+    //✅검색창에 검색어 입력후 엔터키 누르면 해당 관련 글만 조회
     try {
       const res = await axios.put(`http://localhost:80/board/search/${keyword}`);
       console.log("검색 결과:", res.data);
