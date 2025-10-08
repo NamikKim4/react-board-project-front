@@ -7,14 +7,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ## 이미지
-<p>첫화면</p>
-<img width="717" height="611" alt="Image" src="https://github.com/user-attachments/assets/efd1cfa1-cbde-4d68-9c11-69865027ecae" />
+<h2> 첫화면 </h2>
+<img width="1080" height="516" alt="Image" src="https://github.com/user-attachments/assets/5d7626fa-2155-4a98-9424-25fa3c4ebb5f" />
 
-<p>수정/삭제 화면</p>
-<img width="721" height="645" alt="Image" src="https://github.com/user-attachments/assets/1566cef1-b249-4442-900a-2d5f496407f4" />
+<h2> 게시글 조회 </h2>
+<img width="1081" height="496" alt="Image" src="https://github.com/user-attachments/assets/6d10783b-63f7-4fe7-885f-691d73a81a4f" />
 
-<p>글등록 화면</p>
-<img width="718" height="612" alt="Image" src="https://github.com/user-attachments/assets/40495eb8-71ae-4a93-a40e-14d84ad75f12" />
+<h2> 글수정/삭제 화면 </h2>
+<img width="1079" height="565" alt="Image" src="https://github.com/user-attachments/assets/70ea4ccf-f24a-4772-a661-40e326108ea8" />
+
+<h2> 글등록 화면 </h2>
+<img width="1080" height="528" alt="Image" src="https://github.com/user-attachments/assets/56456fa4-de28-4cce-a5a3-410348e4d466" />
 
 ### `npm start`
 
