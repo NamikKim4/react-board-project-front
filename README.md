@@ -14,10 +14,10 @@ In the project directory, you can run:
 <img width="1233" height="666" alt="Image" src="https://github.com/user-attachments/assets/bfd3b462-0f62-4bc1-aebe-3063cba30f41" />
 
 <h2> 글수정/삭제 화면 </h2>
-<img width="1079" height="565" alt="Image" src="https://github.com/user-attachments/assets/70ea4ccf-f24a-4772-a661-40e326108ea8" />
+<img width="792" height="518" alt="Image" src="https://github.com/user-attachments/assets/04215c48-b3bc-4235-87b9-db14194b36b0" />
 
 <h2> 글등록 화면 </h2>
-<img width="1080" height="528" alt="Image" src="https://github.com/user-attachments/assets/56456fa4-de28-4cce-a5a3-410348e4d466" />
+<img width="805" height="542" alt="Image" src="https://github.com/user-attachments/assets/44585a0e-5a38-4759-82d9-e08304e1be16" />
 
 <h2> 검색 기능 </h2>
 <img width="1219" height="623" alt="Image" src="https://github.com/user-attachments/assets/9ebe234d-5648-4982-9711-37eb4143fe7c" />
