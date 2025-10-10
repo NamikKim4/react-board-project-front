@@ -8,16 +8,19 @@ In the project directory, you can run:
 
 ## 이미지
 <h2> 첫화면 </h2>
-<img width="1080" height="516" alt="Image" src="https://github.com/user-attachments/assets/5d7626fa-2155-4a98-9424-25fa3c4ebb5f" />
+<img width="1229" height="737" alt="Image" src="https://github.com/user-attachments/assets/9ab6003e-7db5-4ee0-8752-fa3eac22b24b" />
 
 <h2> 게시글 조회 </h2>
-<img width="1081" height="496" alt="Image" src="https://github.com/user-attachments/assets/6d10783b-63f7-4fe7-885f-691d73a81a4f" />
+<img width="1233" height="666" alt="Image" src="https://github.com/user-attachments/assets/bfd3b462-0f62-4bc1-aebe-3063cba30f41" />
 
 <h2> 글수정/삭제 화면 </h2>
 <img width="1079" height="565" alt="Image" src="https://github.com/user-attachments/assets/70ea4ccf-f24a-4772-a661-40e326108ea8" />
 
 <h2> 글등록 화면 </h2>
 <img width="1080" height="528" alt="Image" src="https://github.com/user-attachments/assets/56456fa4-de28-4cce-a5a3-410348e4d466" />
+
+<h2> 검색 기능 </h2>
+<img width="1219" height="623" alt="Image" src="https://github.com/user-attachments/assets/9ebe234d-5648-4982-9711-37eb4143fe7c" />
 
 ### `npm start`
 
